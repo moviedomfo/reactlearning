@@ -25,14 +25,14 @@ const Select = styled.select`
 const useMoneda = (etiqueta,stateInicial,opciones)=>{
     // State de nuestro custom hook
     const [state, actualizarState] = useState(stateInicial);
-
-    const Seleccionar = ()=>{
+    
+    //lo que eta en esta parte es lo que se mostrara en pantalla
+    const Seleccionar = () => (
         <Fragment>
-            <label>{etiqueta}</label>
+            <Label>{etiqueta}</Label>
             <Select
                 onChange={ e => actualizarState(e.target.value)}
-                value={state}
-            >
+                value={state}>
                 <option value="">- Seleccione -</option>
                 {
                     opciones.map(opcion => (
@@ -41,8 +41,10 @@ const useMoneda = (etiqueta,stateInicial,opciones)=>{
                 }
             </Select>
         </Fragment>
-    }
+    );
 
+    //Retornamos
+    return [state,Seleccionar,actualizarState];
 }
 
 export default useMoneda;

@@ -19,8 +19,8 @@ const Precio = styled.p`
     }
 `
 
-const Cotizador = ({resultado}) => {
-    
+const Cotizacion = ({resultado}) => {
+    if(Object.keys(resultado).length === 0) return null;
     return (
         <ResultadoDiv>
             <h1>Valores de cotización</h1>
@@ -34,4 +34,4 @@ const Cotizador = ({resultado}) => {
     );
 
 }
-export default Cotizador;
+export default Cotizacion;

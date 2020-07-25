@@ -1,21 +1,25 @@
-import React, { useEffect,useState } from 'react';
-
+import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import imagen from './cryptomonedas.png';
-import Cotizador from './components/cotizador/Cotizador';
-import Formulario  from './components/cotizador/Formulario';
+import Formulario from './components/cotizador/Formulario';
+import Cotizacion from './components/cotizador/Cotizacion';
 import Spinner from './components/cotizador/Spinner';
-
+import Footer from './components/otros/Footer';
 
 const Contenedor = styled.div`
-   max-with:900px;
-   margin: 0 auto;
-   @media (min-width:pp2px){
+  max-width: 900px;
+  margin: 0 auto;
+  @media (min-width:992px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
-   }
+  }
+`;
+
+const Imagen = styled.img`
+  max-width: 100%;
+  margin-top: 5rem;
 `;
 const Heading = styled.h1`
   font-family: 'Bebas Neue', cursive;
@@ -25,6 +29,7 @@ const Heading = styled.h1`
   font-size: 50px;
   margin-bottom: 50px;
   margin-top: 80px;
+
   &::after {
     content: '';
     width: 100px;
@@ -33,30 +38,20 @@ const Heading = styled.h1`
     display:block;
   }
 `;
+
 function App() {
 
-// var products = [
-  // {id:1000,name:"manzanas"},
-  // {id:1050,name:"peras"},
-  // {id:1400,name:"bananas"}
-// ];
-  //old code
-  const [productLis,setProduct] = useState(
-    [
-      {id:1000,name:"manzanas"},
-      {id:1050,name:"peras"},
-      {id:1400,name:"bananas"}
-    ]
-  );
-  //old code
-  const [carrito,agregarProducto] =  useState([]);
+  const [moneda, guardarMoneda] = useState('');
+  const [criptomoneda, guardarCriptomoneda] = useState('');
+  const [resultado, guardarResultado] = useState({});
+  const [cargando, guardarCargando] = useState(false);
 
-  function App() {
-    useEffect( () => {
+  useEffect( () => {
 
       const cotizarCriptomoneda = async () => {
           // evitamos la ejecución la primera vez
-          if(moneda === '') return;
+          if(moneda === '') return; 
+          // tambien se puede revisar si el valor sigue siendo el mismo .. es por q no canvio nada
 
           // consultar la api para obtener la cotizacion
           const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
@@ -79,16 +74,13 @@ function App() {
           
       }
       cotizarCriptomoneda();
-  }, [moneda, criptomoneda]);
+  }, [moneda, criptomoneda]);//Aqui se ponen los valores a ESCUCHAR. Cuando cambien moneda y criptomoneda se lanzra la funcion cotizarCriptomoneda
 
-  // Mostrar spinner o resultado
-  const componente = (cargando) ? <Spinner /> :  <Cotizador  resultado={resultado} />
-
-
-  }
+  // Mostrar spinner o resultado aqui solo lo declara
+  const componente = (cargando) ? <Spinner /> :  <Cotizacion  resultado={resultado} />
 
   return (
-      <Contenedor>
+    <Contenedor>
         <div>
           <Imagen 
             src={imagen}
@@ -102,16 +94,14 @@ function App() {
               guardarMoneda={guardarMoneda}
               guardarCriptomoneda={guardarCriptomoneda}
             />
-
+          
             {componente}
             
         </div>
+        <Footer companyName="@moviedo software architect" ></Footer>
     </Contenedor>
+    
   );
-
-
-     
-
 }
 
 export default App;
