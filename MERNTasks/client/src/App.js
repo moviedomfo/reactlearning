@@ -1,5 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import {login} from './components/auth/login'
+import {NuevaCuenta} from './components/auth/NuevaCuenta'
+import {Projects} from './components/projects/Projects'
 
 
 function App() {
@@ -8,8 +11,8 @@ function App() {
       <Router>
           <Switch>
               <Router exact path="/" component={Login}> </Router>
-              <Router exact path="/" component={Login} />
-              <Router exact path="/project" component={Login} />
+              <Router exact path="/nueva" component={NuevaCuenta} />
+              <Router exact path="/projects" component={Projects} />
           </Switch> 
       </Router>
   );
