@@ -5,7 +5,6 @@ import Login from './components/auth/login';
 import NuevaCuenta from './components/auth/nuevaCuenta'
 import Proyectos from './components/projects/Projects'
 
-
 function App() {
   return (
 

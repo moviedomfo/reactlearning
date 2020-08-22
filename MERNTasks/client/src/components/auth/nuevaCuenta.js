@@ -4,15 +4,16 @@ import {Link } from "react-router-dom";
 
 const NuevaCuenta = () => {
 
-
+    const [isValid,saveIsValid] = useState(false);
     const [userInfo, saveUserInfo] = useState({
         userName: '',
+        email:'',
         password : ''
      });
 
    //extraemos el userInfo
-   const {userName,password,confirmPassword} = userInfo;
-
+   const {userName,email,password,confirmPassword} = userInfo;
+ 
     const onChangeText = (e) =>{
             console.info(e.target.value);
 
@@ -26,7 +27,9 @@ const NuevaCuenta = () => {
         e.preventDefault();
         alert('onSubmitCrearCuenta');
         //validar
+            if(userInfo.password!= userInfo.confirmPassword){
 
+            }
         //pasarlo action
 
 
@@ -44,33 +47,46 @@ const NuevaCuenta = () => {
                       type="text"
                       id ="userName"
                       name="userName"
-                      placeholder="user name"
+                      placeholder="User name"
                        value= {userName}
                       onChange = {onChangeText}
 
                       />
               </div>
               <div className="campo-form" >
+                  <label htmlFor ="email">email</label>
+                  <input 
+                      type="email"
+                      id ="email"
+                      name="email"
+                      placeholder="User name"
+                       value= {email}
+                      onChange = {onChangeText}
+
+                      />
+              </div>
+              
+              <div className="campo-form" >
                   <label htmlFor="password">Password</label>
                   <input 
-                      type="text"
+                      type="password"
                       id ="password"
                       name="password"
                       placeholder="password"
                       onChange = {onChangeText}
                      value= {password}
-                      ></input>
+                      />
               </div>
               <div className="campo-form" >
                   <label htmlFor="confirmPassword">Password</label>
                   <input 
-                      type="text"
+                      type="password"
                       id ="confirmPassword"
                       name="confirmPassword"
-                      placeholder="Confirm Password"
+                      placeholder="Confirm password"
                       onChange = {onChangeText}
                      value= {confirmPassword}
-                      ></input>
+                     />
               </div>
               <div className="campo-form" >
                   
