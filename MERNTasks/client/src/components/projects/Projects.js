@@ -5,9 +5,7 @@ import Sidebar from '../layout/sidebar'
 const Proyectos = () => {
     return (
         <div className="contenedor-app">
-            <Sidebar>
-
-                
+            <Sidebar>                
             </Sidebar>
             <div className="seccion-principal">
                 <main>
