@@ -7,18 +7,16 @@ const ListadoProyectos = () => {
         {projectName: "Tienda virtual"},
         {projectName: "celam virtual"},
         {projectName: "sport club"}
-    ];
+    ]
+
     return (
-        
-            <ul className="listado-proyectos" key="">
-                { 
-                    projectList.map(p => (
-                             <Project project={p}
-                    />
-                ))}
-            </ul>
-      
-         
+           
+             <ul className="listado-proyectos" key="">
+                 { projectList.map(p => (
+                       <Project project={p}></Project>
+                     ))}
+             </ul>
+ 
     );
 
 }
