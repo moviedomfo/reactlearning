@@ -20,4 +20,4 @@ const Barra = () => {
 
 }
 
-export default Barra
+export default Barra;

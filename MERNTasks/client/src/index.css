@@ -4,6 +4,7 @@
   --gris2: #2f3848;
   --gris3: #1a202d;
   --negro: #000000;
+  --red: #d64161;
   --headingFont:'Raleway', sans-serif;
   --textFont:  'Roboto', sans-serif;
 }
@@ -68,6 +69,19 @@ a {
   background-color: var(--gris2);
   color: var(--blanco);
 }
+
+.btn-eliminar {
+  background-color: var(--red);
+  color: var(--blanco);
+  font-kerning: var(--gris2);
+}
+
+.btn-eliminar :hover {
+  background-color: var(--gris3);
+  color: var(--blanco);
+  background: var(--gris3);
+}
+
 .btn-primario:hover {
   background: var(--gris3);
 }
