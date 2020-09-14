@@ -13,7 +13,7 @@ function App() {
     //Hacer disponible el State en toda la apliccion 
     //Para que las diferentes props que escribimos en el state se pace a todos los componentes
    <ProyectoState>
-    <Router>
+      <Router>
         <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/nueva-cuenta" component={NuevaCuenta} />

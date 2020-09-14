@@ -4,10 +4,10 @@ import Tarea from '../tasks/Tarea'
 const ListadoTareas = () => {
 
   const tareasProyecto = [
-    {nombre:'Tarea 1',estado : true},
-    {nombre:'Tarea 2',estado : false},
-    {nombre:'Tarea 3',estado : false},
-    {nombre:'Tarea 4',estado : true}
+    {id : 1 ,nombre:'Tarea 1',estado : true},
+    {id : 2 ,nombre:'Tarea 2',estado : false},
+    {id : 3 ,nombre:'Tarea 3',estado : false},
+    {id : 4 ,nombre:'Tarea 4',estado : true}
 
   ];
 
@@ -22,7 +22,7 @@ const ListadoTareas = () => {
                        
                          : 
                           tareasProyecto.map(t=>(
-                                     <Tarea   tarea={t}></Tarea>
+                                     <Tarea id={t.id}  tarea={t}></Tarea>
                                 ))
                           
                     }
