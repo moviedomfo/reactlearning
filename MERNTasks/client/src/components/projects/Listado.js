@@ -7,15 +7,18 @@ import proyectoContext from '../../context/proyectos/proyectoContext';
 const ListadoProyectos = () => {
 
 
+    //xtraer proyectos de state inicial
     const proyectosContext = useContext(proyectoContext);
     const {projectList,obtenerProyectos} = proyectosContext;
 
     //1) Esto se ejecuta antes qeu 2
+    // useEfect vendrian a ser como los eventos esto ocurre al inicializar una sola vez
+    //Obtiene poryectos cuando carga el componente
     useEffect(()=>{
         obtenerProyectos();
     },[]);
 
-    //2)
+    //2) revisar si hay contenido
     if(projectList.lenght ===0) return null; 
 
    

@@ -1,4 +1,4 @@
-import {FORMULARIO_PROYECTO,OBTENER_PROYECTOS} from '../../types'
+import {FORMULARIO_PROYECTO,OBTENER_PROYECTOS,ADD_PROYECTO} from '../../types'
 
 //Es un reemplazo de redux sin agregfar nada 
 // lo único que hace Reducer es cambiar el state
@@ -15,8 +15,13 @@ export default (state,action) => {
         case OBTENER_PROYECTOS:
                 return{
                     ...state, 
-                    proyectos: action.payload
+                    projectList: action.payload
                 }
+         case ADD_PROYECTO:
+                    return{
+                        ...state, 
+                        projectList: [...state.projectList,action.payload]
+                    }
 
         default:
             return state;
