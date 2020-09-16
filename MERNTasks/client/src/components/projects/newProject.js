@@ -16,9 +16,9 @@ const NewProject = () => {
 
 
       //state p/proyecto
-      const [project,saveProject] = useState({proyectName:'' });
+      const [project,saveProject] = useState({projectName:'' });
    
-      const {proyectName}=project;
+      const {projectName}=project;
 
       const onChangeProject= e =>{
         saveProject ({
@@ -31,7 +31,7 @@ const NewProject = () => {
         e.preventDefault();
         
         //validar
-          if(proyectName === ''){
+          if(projectName === ''){
               return;
           }
           
@@ -41,7 +41,7 @@ const NewProject = () => {
         //pasarlo action
  // Reiniciar el form
         saveProject({
-            proyectName: ''
+            projectName: ''
         })
 
     }
@@ -60,8 +60,8 @@ const NewProject = () => {
                         <input 
                             type="text" 
                             className="input-text" 
-                            name="proyectName" 
-                            value={proyectName}
+                            name="projectName" 
+                            value={projectName}
                             onChange={onChangeProject}
                         />
 

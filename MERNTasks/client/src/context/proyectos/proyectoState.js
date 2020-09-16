@@ -72,6 +72,14 @@ const ProyectoState = props =>{
                             payload : proyecto
                     })
             }
+            const proyectoActual = id => {
+
+                    
+                    dispatch({
+                                type : PROYECTO_ACTUAL,
+                                payload : id
+                        })
+                }
          return(
              //State Inicial
              <proyectoContext.Provider
@@ -82,7 +90,8 @@ const ProyectoState = props =>{
                     obtenerProyectos,
                     mostrarFormulario,
                     addProyecto,
-                    mostrarError 
+                    mostrarError ,
+                    proyectoActual
                 }}
                 >
                     {props.children}
