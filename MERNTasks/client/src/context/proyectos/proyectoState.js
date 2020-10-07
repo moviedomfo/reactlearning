@@ -30,7 +30,8 @@ const ProyectoState = props =>{
         const initialState = {
             projectList : [],
             formulario : false,
-            errorformulario: false
+            errorformulario: false,
+            proyect:null
         }
         
         //dispatch p/ejecutar las acciones Es igual a cuando usamos un useState array destructuring
@@ -46,7 +47,7 @@ const ProyectoState = props =>{
                     })
             }
 
-        // Valida el formulario por errores
+    // Valida el formulario por errores
     const mostrarError = () => {
         dispatch({
             type: VALIDAR_FORMULARIO
@@ -72,14 +73,15 @@ const ProyectoState = props =>{
                             payload : proyecto
                     })
             }
-            const proyectoActual = id => {
 
-                    
-                    dispatch({
-                                type : PROYECTO_ACTUAL,
-                                payload : id
-                        })
-                }
+       const proyectoActual = id => {
+               dispatch({
+                 type : PROYECTO_ACTUAL,
+                 payload : id
+                 })
+       }
+
+        
          return(
              //State Inicial
              <proyectoContext.Provider
@@ -87,6 +89,7 @@ const ProyectoState = props =>{
                     projectList :state.projectList,
                     formulario : state.formulario,
                     errorformulario: state.errorformulario,
+                    proyect: state.proyect,
                     obtenerProyectos,
                     mostrarFormulario,
                     addProyecto,

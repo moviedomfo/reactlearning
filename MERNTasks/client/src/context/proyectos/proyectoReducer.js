@@ -1,7 +1,10 @@
-import {FORMULARIO_PROYECTO,
+import {
+    FORMULARIO_PROYECTO,
     OBTENER_PROYECTOS,
     ADD_PROYECTO,
-    PROYECTO_ACTUAL,ELIMINAR_PROYECTO
+    PROYECTO_ACTUAL,
+    ELIMINAR_PROYECTO, 
+    VALIDAR_FORMULARIO
 } from '../../types'
 
 //Es un reemplazo de redux sin agregfar nada 
@@ -24,12 +27,14 @@ export default (state,action) => {
          case ADD_PROYECTO:
                     return{
                         ...state, 
-                        projectList: [...state.projectList,action.payload]
+                        projectList: [...state.projectList,action.payload],
+                        formulario :false,
+                        errorformulario :false,
                     }
         case PROYECTO_ACTUAL:
                 return{
-                            ...state, 
-                            proyect: state.projectList.filter(p=> p.id= action.payload),
+                         ...state, 
+                         proyect: state.projectList.filter(p=> p.id === action.payload),
                             
                         }
         case ELIMINAR_PROYECTO:
@@ -38,6 +43,11 @@ export default (state,action) => {
                    proyect: state.projectList.filter(p=> p.id= action.payload),
                    proyect : null
                }
+    case VALIDAR_FORMULARIO:
+        return{
+            ...state,
+            errorformulario:true,
+        }
 
         default:
             return state;

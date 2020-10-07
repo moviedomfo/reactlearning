@@ -12,9 +12,6 @@ const NewProject = () => {
     const {formulario,errorformulario,mostrarFormulario,addProyecto,mostrarError } = proyectosContext;
 
 
-   
-
-
       //state p/proyecto
       const [project,saveProject] = useState({projectName:'' });
    
@@ -32,6 +29,7 @@ const NewProject = () => {
         
         //validar
           if(projectName === ''){
+                mostrarError();//Esta llamada va porjectState.js invocando la funcion  mostrarError
               return;
           }
           
@@ -39,7 +37,7 @@ const NewProject = () => {
         addProyecto(project);
         
         //pasarlo action
- // Reiniciar el form
+      // Reiniciar el form
         saveProject({
             projectName: ''
         })
