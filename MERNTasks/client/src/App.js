@@ -8,7 +8,7 @@ import ProyectoState from './context/proyectos/proyectoState';
 
 
 function App() {
-  return (
+   return (
 
     //Hacer disponible el State en toda la apliccion 
     //Para que las diferentes props que escribimos en el state se pace a todos los componentes

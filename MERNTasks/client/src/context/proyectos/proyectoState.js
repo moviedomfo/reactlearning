@@ -27,11 +27,11 @@ const ProyectoState = props =>{
     ]
 
 
-        const initialState = {
+    const initialState = {
             projectList : [],
             formulario : false,
             errorformulario: false,
-            proyect:null
+            project:null
         }
         
         //dispatch p/ejecutar las acciones Es igual a cuando usamos un useState array destructuring
@@ -55,7 +55,7 @@ const ProyectoState = props =>{
     } 
         // obtener los proyectos y este si tomara un parametro 'proyectos'
         //Siempre lo que tome la funcion como parametro es lo qu eva aser el payload
-         const obtenerProyectos = () => {
+    const obtenerProyectos = () => {
                 //aqui entra en juego el dispatch que evalua el swith
                 dispatch({
                             type : OBTENER_PROYECTOS,
@@ -81,6 +81,12 @@ const ProyectoState = props =>{
                  })
        }
 
+       const eliminarProyecto = id =>{
+           dispatch({
+            type:ELIMINAR_PROYECTO,
+            payload:id
+           })
+       }
         
          return(
              //State Inicial
@@ -89,12 +95,13 @@ const ProyectoState = props =>{
                     projectList :state.projectList,
                     formulario : state.formulario,
                     errorformulario: state.errorformulario,
-                    proyect: state.proyect,
+                    project: state.project,
                     obtenerProyectos,
                     mostrarFormulario,
                     addProyecto,
                     mostrarError ,
-                    proyectoActual
+                    proyectoActual,
+                    eliminarProyecto
                 }}
                 >
                     {props.children}

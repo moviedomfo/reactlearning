@@ -11,7 +11,7 @@ const ListadoProyectos = () => {
     const proyectosContext = useContext(proyectoContext);
     const {projectList,obtenerProyectos} = proyectosContext;
 
-    //1) Esto se ejecuta antes qeu 2
+    //1) Esto se ejecuta antes que 2
     // useEfect vendrian a ser como los eventos esto ocurre al inicializar una sola vez
     //Obtiene poryectos cuando carga el componente
     useEffect(()=>{

@@ -34,14 +34,14 @@ export default (state,action) => {
         case PROYECTO_ACTUAL:
                 return{
                          ...state, 
-                         proyect: state.projectList.filter(p=> p.id === action.payload),
+                         project: state.projectList.filter(p=> p.id === action.payload),
                             
                         }
         case ELIMINAR_PROYECTO:
                return{
                    ...state, 
-                   proyect: state.projectList.filter(p=> p.id= action.payload),
-                   proyect : null
+                   projectList: state.projectList.filter(p=> p.id !== action.payload),//traer todos menos el que quiero eliminar
+                   
                }
     case VALIDAR_FORMULARIO:
         return{
