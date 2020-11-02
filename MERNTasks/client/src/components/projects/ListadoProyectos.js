@@ -1,5 +1,5 @@
 import React,{useContext,useEffect} from 'react';
-import Project from '../projects/Project';
+import Project from './Project';
 import proyectoContext from '../../context/proyectos/proyectoContext'; 
 
 
@@ -7,7 +7,7 @@ import proyectoContext from '../../context/proyectos/proyectoContext';
 const ListadoProyectos = () => {
 
 
-    //xtraer proyectos de state inicial
+    //Extraer proyectos de state inicial
     const proyectosContext = useContext(proyectoContext);
     const {projectList,obtenerProyectos} = proyectosContext;
 

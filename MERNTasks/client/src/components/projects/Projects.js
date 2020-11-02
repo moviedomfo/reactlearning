@@ -12,8 +12,7 @@ const Proyectos = () => {
             <div className="seccion-principal">
                 <Barra></Barra>
                 <main>
-                <FormTarea>
-                                
+                    <FormTarea>
                                 </FormTarea>
                     <div className="seccion-tarea">
                        <ListadoTareas></ListadoTareas>

@@ -10,8 +10,11 @@ const Project = ({project}) => {
     // obtener la función del context de tarea
     //const tareasContext = useContext(tareaContext);
     //const { obtenerTareas } = tareasContext;
+
+    
     // Función para agregar el proyecto actual
     const seleccionarProyecto = id => {
+        
         proyectoActual(id); // Fijar un proyecto actual
         //obtenerTareas(id); // Filtrar las tareas cuando se de click
     }
@@ -20,7 +23,7 @@ const Project = ({project}) => {
                 <button  
                     type="button"
                     className="btn btn-blank"
-                    onClick={ () => proyectoActual(project.id) }>
+                    onClick={ () => seleccionarProyecto(project.id) }>
                     {project.projectName} 
                 </button>
             </li>

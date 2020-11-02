@@ -6,14 +6,15 @@ const FormTarea = () => {
   
     // extraer si un pryecto esta activo
     const proyectosContext = useContext(proyectoContext);
-    const [project] = proyectosContext;
+    //const project = proyectosContext;
+    const { proyectoActual } = proyectosContext;
+    
     //si no hay poryectos seleccionado 
-    if(!project){
-        return null
-    }
-    const { proyectoActual } = project;
-
-
+     if(!proyectoActual)   return null
+    
+    // const [proyectoActual]  = project;
+    //const [projectActual] = project;
+ 
     //Cargamos la info de la tarea
     return (
             <div className="formmulario">

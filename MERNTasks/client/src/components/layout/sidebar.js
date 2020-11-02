@@ -1,6 +1,6 @@
 import React from 'react';
 import NewProject from '../projects/newProject'
-import ListadoProyectos from '../projects/Listado'
+import ListadoProyectos from '../projects/ListadoProyectos'
 
 
 
