@@ -19,7 +19,7 @@ const ListadoProyectos = () => {
     },[]);
 
     //2) revisar si hay contenido
-    if(projectList.lenght ===0) return null; 
+    if(projectList.lenght ===0) return   <p>No hay poryectos, comienza creando uno !!</p> 
 
    
     return (

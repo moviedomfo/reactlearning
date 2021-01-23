@@ -1,4 +1,4 @@
-import {FORMULARIO_PROYECTO} from '../../types'
+import {TAREAS_PROYECTO} from '../../types'
 
 //Es un reemplazo de redux sin agregfar nada 
 // lo único que hace Reducer es cambiar el state
@@ -6,11 +6,12 @@ import {FORMULARIO_PROYECTO} from '../../types'
 export default (state,action) => {
 
     switch (action.type) {
-        //aqui es donde se mapean con el ProyectoState
-        case  FORMULARIO_PROYECTO:
+        //aqui es donde se mapean con el tareaState
+        case  TAREAS_PROYECTO:
             return{
-                 //tomamos copuia del state con todo y cambiamos el valor de formulario solamente
-                    ...state,formulario : true
+
+                    ...state,
+                    tareasProyecto: state.tareas.filter(t=> t.projectId === action.payload)
             }
         default:
             return state;

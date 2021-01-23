@@ -41,6 +41,7 @@ export default (state,action) => {
                return{
                    ...state, 
                    projectList: state.projectList.filter(p=> p.id !== action.payload),//traer todos menos el que quiero eliminar
+                   project:null
                    
                }
     case VALIDAR_FORMULARIO:
