@@ -20,7 +20,8 @@ const Precio = styled.p`
 `
 
 const Cotizacion = ({resultado}) => {
-    if(Object.keys(resultado).length === 0) return null;
+    if(Object.keys(resultado).length === 0) 
+        return null;
     return (
         <ResultadoDiv>
             <h1>Valores de cotización</h1>
