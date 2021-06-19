@@ -6,11 +6,11 @@ import Boton from './componets/Boton.js'
 
 function App() {
 
-  const [visible, setVisible] = useState(false)
-  const visualizar =()=>{
+  // const [visible, setVisible] = useState(false)
+  // const visualizar =()=>{
 
-      setVisible(!visible);
-  }
+  //     setVisible(!visible);
+  // }
 
   return (
     <Fragment>
