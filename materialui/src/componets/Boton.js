@@ -10,28 +10,26 @@ import { cleanup } from '@testing-library/react';
 // import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 const  Boton =  ({visible})  => {
     
-    const [state, setState] = useState(visible);
+    // const [state, setState] = useState(visible);
 
     // con useEffect se pueden interseptar las fases de desmontaje del componente
     // Component did mount
     // Component did update
     // Component did unmount
-    useEffect(() => {
-        console.log('set Component did mount');
+    // useEffect(() => {
+    //     console.log('set Component did mount');
     
-        // return ()=> {
-        //     cleanup;
-        // }
-        setState(!state);
-    }, [state]);
+      
+    // }, [state]);
 
      
     return (
          <>
-       
+       {visible &&
             <Button variant="text" color="primary" visible={visible}>
                      Botonaso de prueba
             </Button>
+        }
         </> 
     );
 
