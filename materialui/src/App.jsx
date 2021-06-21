@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Fragment } from 'react-is';
 import Boton from './componets/Boton.js'
+import PokemonAsyncHooks from './componets/PokemonAsyncHooks.js';
 import PokemonHooks from './componets/PokemonHooks.js';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
 
         <br>
         </br>
-         <PokemonHooks/>
+         {/* <PokemonHooks/> */}
+         <PokemonAsyncHooks/>
    </Fragment>
   );
 }
