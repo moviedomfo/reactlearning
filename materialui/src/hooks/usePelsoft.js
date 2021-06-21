@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import  {useState, useEffect } from 'react'
 
 // par areact todos los hooks deben em pesar con hooks
 const  usePelsoftFetch =  (url)  => {
