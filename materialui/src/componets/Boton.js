@@ -1,6 +1,5 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import { Button } from '@material-ui/core';
-import { cleanup } from '@testing-library/react';
 
 // const ResultadoDiv = styled.div`
 //     color: #FFF;
@@ -26,7 +25,7 @@ const  Boton =  ({visible})  => {
     return (
          <>
        {visible &&
-            <Button variant="text" color="primary" visible={visible}>
+            <Button variant="text" color="primary" visible={visible.toString()}>
                      Botonaso de prueba
             </Button>
         }

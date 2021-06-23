@@ -12,4 +12,4 @@ const Pokemon =({name,avatar})=>{
 
 } 
 
-export default Pokemon;
+export default  Pokemon;

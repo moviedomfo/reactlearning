@@ -3,8 +3,9 @@ import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Fragment } from 'react-is';
 import Boton from './componets/Boton.js'
-import PokemonAsyncHooks from './componets/PokemonAsyncHooks.js';
-import PokemonHooks from './componets/PokemonHooks.js';
+import HooksPersonalizados from './componets/HooksPersonalizados.js';
+// import PokemonAsyncHooks from './componets/PokemonAsyncHooks.js';
+// import PokemonHooks from './componets/PokemonHooks.js';
 
 function App() {
 
@@ -12,13 +13,14 @@ function App() {
   return (
     <Fragment>
         <div>Hola Mundo Reactivo</div>
-        <Button onClick= { ()=> setVisible(!visible)}>Visualizar </Button>
+        <Button onClick= { ()=> setVisible(!visible)}> Visualizar </Button>
         <Boton visible= {visible} />
 
         <br>
         </br>
          {/* <PokemonHooks/> */}
-         <PokemonAsyncHooks/>
+         {/* <PokemonAsyncHooks/> */}
+         <HooksPersonalizados/>
    </Fragment>
   );
 }
