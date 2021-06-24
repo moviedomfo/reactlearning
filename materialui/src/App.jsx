@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Fragment } from 'react-is';
 import Boton from './componets/Boton.js'
 import HooksPersonalizados from './componets/HooksPersonalizados.js';
+import GridPelsoft from './componets/GridPelsoft'
 // import PokemonAsyncHooks from './componets/PokemonAsyncHooks.js';
 // import PokemonHooks from './componets/PokemonHooks.js';
 
@@ -18,6 +19,7 @@ function App() {
 
         <br>
         </br>
+        <GridPelsoft></GridPelsoft>
          {/* <PokemonHooks/> */}
          {/* <PokemonAsyncHooks/> */}
          <HooksPersonalizados/>
