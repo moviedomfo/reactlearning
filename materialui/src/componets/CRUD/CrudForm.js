@@ -31,6 +31,17 @@ const handleSubmit = (e) =>{
       alert('Faltan valores requeridos');
       return;
   }
+
+
+  if(form.id === null){
+        createData(form);
+  }else
+  {
+      updateData(form);
+  }
+  // limpiamos el formulario
+  handleReset();
+
   let res = window.confirm("Desea confirmar el alta ?");
   console.info(res);
     if(res){
@@ -44,8 +55,6 @@ const handleSubmit = (e) =>{
     }
 }
 const handleReset = (e) =>{
-
-    
     setForm(initialForm);
 }
 
