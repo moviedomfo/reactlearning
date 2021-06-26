@@ -27,6 +27,7 @@ useEffect(() => {
             }
 
             setPokemons((pokemons) => [...pokemons, pokemon])
+            
 
         });
 
