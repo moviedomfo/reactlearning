@@ -8,6 +8,8 @@ In the project directory, you can run:
 
 ### `npm start`
 
+Inb Other console
+### `npm run jserver` tio call script json-server --watch src/server/db.json --port 50010
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
