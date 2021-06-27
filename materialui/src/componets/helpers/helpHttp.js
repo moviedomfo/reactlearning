@@ -1,5 +1,6 @@
 
-export  const helpHttp = () =>{
+              
+export const  helpHttp = () =>{
     const TIMEOUT = 3000;
     // a este lo vana llamar los demas
     const customFetch = (url,options) => {
@@ -39,15 +40,15 @@ export  const helpHttp = () =>{
         console.log(options);
 
         // Si en cierto tiempo la API no responde Abortamos la peticion
-        setTimeout(() => {
-            controller.abort();
-        }, TIMEOUT);
+        // setTimeout(() => {
+        //     controller.abort();
+        // }, TIMEOUT);
 
 
         return fetch(url,options).then(
             res=> {
                 if(res.ok){
-                  res.json();
+                 return res.json();
                 }
                 else{
 
@@ -102,3 +103,5 @@ export  const helpHttp = () =>{
 
 
 }
+
+// export default helpHttp;
