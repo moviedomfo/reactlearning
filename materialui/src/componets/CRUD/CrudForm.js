@@ -42,17 +42,6 @@ const handleSubmit = (e) =>{
   // limpiamos el formulario
   handleReset();
 
-  let res = window.confirm("Desea confirmar el alta ?");
-  console.info(res);
-    if(res){
-        setForm(
-            ...form,
-            {   
-                id : uuidv4()
-            }
-        );
-        alert("Creado" + JSON.stringify(form));
-    }
 }
 const handleReset = (e) =>{
     setForm(initialForm);

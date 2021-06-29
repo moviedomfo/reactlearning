@@ -2,36 +2,69 @@ import React, { useEffect, useState } from 'react';
 import { CrudForm } from './CrudForm.js';
 import { CrudTable } from './CrudTable.js';
 import {helpHttp} from './../helpers/helpHttp'
-import {Message} from './../Message.js';
-import {Loader} from './../Loader.js';
-
+import Message from './../Message.js';
+import Loader from './../Loader.js';
+import { v4 as uuidv4 } from 'uuid';
 export const CrudAPI = () => {
 
-const [db,setDb] = useState([]);
+const [db,setDb] = useState(null);
 const [currentData,setCurrentData] = useState(null);
-const [isLoading,setIsLoading] = useState(false);
+const [isLoading,setIsLoading] = useState(true);
 const [error,setError] = useState(null);
 
-const api = helpHttp();
+
 let url = "http://localhost:50010/products";
 
 useEffect(() => {
     setIsLoading(true);
-    api.get(url).then((res)=>{
-        //const data = JSON.parse(res);
-        if(res.OK){
-            setDb([...db,...res]);
+    helpHttp().get(url).then((res)=>{
+
+        if(!res.err){
+            // setDb([...db,...res]);
+            setDb(res);
             setError(null);
         }else{
             setDb([]);
             setError(res);
+          
         }
         setIsLoading(false);
     });
 
-}, []);
+}, [url]);
 
-const createData = ()=>{};
+const createData = (data)=>{
+
+    setIsLoading(true);
+    
+  let res = window.confirm("Desea confirmar el alta ?");
+  console.info(res);
+    if(res){
+        let options = {
+            body: data,
+            headers: { "content-type": "application/json" },
+          };
+      
+        data.id = uuidv4();
+
+        helpHttp().post(url,options).then((res)=>{
+
+            if(!res.err){
+                setDb([...db,res]);
+                alert("Creado" + JSON.stringify(data));
+            }else{
+                setError(res);
+              
+            }
+            setIsLoading(false);
+            
+        });
+        
+    }
+
+    
+
+};
 const updateData = ()=>{};
 const deleteData = ()=>{};
 
@@ -48,7 +81,7 @@ const deleteData = ()=>{};
             />
          
         {isLoading && <Loader/>} 
-        {error &&  <Message msg = {"pepellllllll"}/>} 
+        {error && <Message msg = {error.message} isError={true}/>} 
         {db && <CrudTable 
             products={db} 
             setCurrentData={setCurrentData}

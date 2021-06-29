@@ -19,15 +19,14 @@ function App() {
     <hr/>
         <CrudAPI/>
         <hr/>
-      <hr/>
-        <CrudApp/>
+      
+        {/* <CrudApp/> */}
         
-        <hr/>
         {/* <Formulario/> */}
-        <br></br>
+        {/* <br></br>
         <div>Hola Mundo Reactivo</div>
         <Button onClick= { ()=> setVisible(!visible)}> Visualizar </Button>
-        <Boton visible= {visible} />
+        <Boton visible= {visible} /> */}
         
         {/* <GridPelsoft></GridPelsoft> */}
          {/* <PokemonHooks/> */}

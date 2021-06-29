@@ -1,11 +1,14 @@
 import React from 'react';
-
-const  Message =  ({msg})  => {
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { Alert } from '@material-ui/lab';
+const  Message =  ({msg,isError})  => {
     
      
     return (
          <>
-            <p>{msg}</p>
+           {isError && <Alert severity="error">{msg} </Alert>}
+           {!isError && <Alert severity="info">{msg} </Alert>}
+
         </> 
     );
   

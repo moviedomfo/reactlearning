@@ -1,20 +1,18 @@
 import React from 'react';
-
+import './Loader.css';
 const  Loader =  ()  => {
-    
-
      
     return (
          <>
-            <h3>Cargando ...</h3>
+         
+         <div className="loader">Loading...</div>
         </> 
     );
 
   
 };
 
-Loader.defaultProps ={
-    visible: false,
-}
- export default  Loader;
+
+
+export default  Loader;
     

@@ -8,11 +8,14 @@ export const CrudTable = ({products}) => {
             <h3>Tabla de datos</h3>
             <table>
                 <thead>
+                    <tr>
                     <th>Nombre</th>
                     <th>Origen</th>
                     <th>Acciones</th>
+                    </tr>
+                    
                 </thead>
-                <body>
+                <tbody>
                     {products.lenght === 0 ? 
                     
                     (
@@ -25,7 +28,7 @@ export const CrudTable = ({products}) => {
                         products.map((e) =>  <CrudTableRow key={e.id} element={e}></CrudTableRow>)                            
                        
                     )}
-                </body>
+                </tbody>
             </table>
         </div>
     );

@@ -5,7 +5,7 @@ export const  helpHttp = () =>{
     // a este lo vana llamar los demas
     const customFetch = (url,options) => {
 
-
+        sleep(TIMEOUT);
         const defaultHeaders = {
             accept: "application/json"
         };
@@ -45,36 +45,45 @@ export const  helpHttp = () =>{
         // }, TIMEOUT);
 
 
-        return fetch(url,options).then(
-            res=> {
-                if(res.ok){
-                 return res.json();
-                }
-                else{
-
-                    Promise.reject({
-                        err:true,
-                        message: res.error.message || '',
-                        httpStatus : res.error.status || 501,
-                        statusText : res.error.statusText || 'Ocurrio un error',
-                    });
+        // return fetch(url,options).then(
+        //     res=> {
+        //         if(res.ok){
                     
-                }
-            }
-        )
-        .catch(err=>err);
+        //              Promise.resolve(res);
+                    
+        //         }
+        //         else{
 
-    //     return fetch(endpoint, options)
-    //   .then((res) =>
-    //     res.ok
-    //       ? res.json()
-    //       : Promise.reject({
-    //           err: true,
-    //           status: res.status || "00",
-    //           statusText: res.statusText || "Ocurrió un error",
-    //         })
-    //   )
-    //   .catch((err) => err);
+        //             Promise.reject({
+        //                 err:true,
+        //                 message: res.error.message || '',
+        //                 httpStatus : res.error.status || 501,
+        //                 statusText : res.error.statusText || 'Ocurrio un error',
+        //             });
+                    
+        //         }
+        //     }
+        // )
+        // .catch((err)=>{
+        //     Promise.reject({
+        //         err:true,
+        //         message: err.message || '',
+        //         httpStatus : err.status || 501,
+        //         statusText : err.statusText || 'Ocurrio un error',
+        //     });
+        // });
+
+        return fetch(url, options)
+      .then((res) =>
+        res.ok
+          ? res.json()
+          : Promise.reject({
+              err: true,
+              status: res.status || "00",
+              message: res.statusText || "Ocurrió un error",
+            })
+      )
+      .catch((err) => err);
     }
 
    
@@ -101,7 +110,13 @@ export const  helpHttp = () =>{
         get,post,put,del
     };
 
-
+    function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+          currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+      }
 }
 
 // export default helpHttp;
