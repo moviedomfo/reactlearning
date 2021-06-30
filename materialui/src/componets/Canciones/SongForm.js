@@ -8,7 +8,6 @@ const initialForm ={
 const SongForm = ({hadleSearch}) => {
 
     const [form, setForm] = useState(initialForm);
-    const {artist,song} =[form];
 
     const handleInput = (e) =>{
         e.preventDefault();
@@ -34,11 +33,11 @@ const SongForm = ({hadleSearch}) => {
             
         <input type="text"  placeholder="Nombre del artista"
              name = "artist"
-             value={artist}
+             value={form.artist}
              onChange={handleInput}></input>
           <input type="text"   placeholder="Nombre de la canción"
              name = "song"
-             value={song}
+             value={form.song}
              onChange={handleInput}></input>
          <input type="submit" value= "Aceptar"></input>
          

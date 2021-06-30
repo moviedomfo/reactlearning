@@ -1,11 +1,12 @@
 import React, { useEffect,useState } from 'react';
 import { helpHttp } from '../helpers/helpHttp';
 import Loader from '../Loader';
+import Message from '../Message.js';
 import SongDetails from './SongDetails';
 import SongForm from './SongForm';
 
-const url_song = "https://lyricsovh.docs.apiary.io/";
-const url_artist = 'https://www.theaudiodb.com/api/v1/json/1/search.php?';
+const url_song = "https://lyricsovh.docs.apiary.io";
+const url_artist = 'https://www.theaudiodb.com/api/v1/json/1/search.php';
 const SongSearch = () => {
     const [search, setSearch] = useState(null);
     const [currenLyric, setCurrenLyric] = useState(null);
@@ -17,17 +18,19 @@ const SongSearch = () => {
         // para evitar renderizados innecesarios
         if(!search)return;
 
-    const {artist,song} =[search];
+  
 
       
-    const fetchData = ()=>{
-        let search_artist = `${url_artist}?/${artist}`;
-        let search_song = `${url_song}/${artist}/${song}`;
+    const fetchData =async ()=>{
 
+        const {artist,song} = search;
+        // alert(JSON.stringify(search));
+
+        let search_artist = `${url_artist}?s=${artist}`;
+        let search_song = `${url_song}/${artist}/${song}`;
         setLoading(true);
-        
         //DEBO ESPERAR AMBAS PETICIONES Artsta mas Canciones
-        const [res_artist,res_songs] = Promise.all([
+       const [res_artist,res_songs] = await Promise.all([
             helpHttp().get(search_artist),
             helpHttp().get(search_song)
         ]);
@@ -52,6 +55,8 @@ const SongSearch = () => {
 
 
     const hadleSearch = (searchData) =>{
+        
+  
         setSearch(searchData);
            
     };
@@ -59,9 +64,8 @@ const SongSearch = () => {
     return (
         <>
             <h2> Song Search</h2> 
-             
-                {loading && <Loader/> }
-        
+               {loading && <Loader/> }
+                {error && <Message msg = {error.message} isError={true}/>} 
             <SongForm hadleSearch={hadleSearch}/>
             <SongDetails search= {search}
                currenLyric={currenLyric} 

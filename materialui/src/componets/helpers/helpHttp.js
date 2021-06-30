@@ -1,18 +1,19 @@
 
               
 export const  helpHttp = () =>{
-    const TIMEOUT = 1000;
+    const TIMEOUT = 4000;
     // a este lo vana llamar los demas
     const customFetch = (url,options) => {
 
-        sleep(TIMEOUT);
+        // sleep(TIMEOUT);
 
         // no agrego content type por q no todas las APIS lo requieren
         // hay que tener en cta. la doc de c/api
         const defaultHeaders = {
-            accept: "application/json"
-            // 'Access-Control-Allow-Origin':'*',
-            // 'Access-Control-Allow-Methods': '*'
+            accept: "application/json",
+             'Access-Control-Allow-Origin':'*',
+             'Access-Control-Allow-Methods': 'all',
+             ' Access-Control-Allow-Headers' :'*'
         };
 
         // abort controller : sirve para abortar en cualquier momento la peticion
@@ -42,12 +43,12 @@ export const  helpHttp = () =>{
             delete options.body;
         }
 
-        console.log(options);
+        // console.log(options);
 
         // Si en cierto tiempo la API no responde Abortamos la peticion
-        // setTimeout(() => {
-        //     controller.abort();
-        // }, TIMEOUT);
+        setTimeout(() => {
+            controller.abort();
+        }, TIMEOUT);
 
 
         // return fetch(url,options).then(
