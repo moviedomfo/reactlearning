@@ -1,7 +1,7 @@
 import React from 'react';
 import { CrudTableRow } from './CrudTableRow';
 
-export const CrudTable = ({products}) => {
+export const CrudTable = ({products,setCurrentData,deleteData}) => {
 
     return (
         <div>
@@ -25,7 +25,13 @@ export const CrudTable = ({products}) => {
                         </tr>
                     ):
                     (
-                        products.map((e) =>  <CrudTableRow key={e.id} element={e}></CrudTableRow>)                            
+                        products.map((e) =>  <CrudTableRow 
+                            key={e.id} 
+                            element={e}
+                            deleteData = {deleteData}
+                            setCurrentData = {setCurrentData}
+                            
+                        />)                            
                        
                     )}
                 </tbody>

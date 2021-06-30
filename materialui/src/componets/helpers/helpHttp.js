@@ -1,13 +1,18 @@
 
               
 export const  helpHttp = () =>{
-    const TIMEOUT = 3000;
+    const TIMEOUT = 1000;
     // a este lo vana llamar los demas
     const customFetch = (url,options) => {
 
         sleep(TIMEOUT);
+
+        // no agrego content type por q no todas las APIS lo requieren
+        // hay que tener en cta. la doc de c/api
         const defaultHeaders = {
             accept: "application/json"
+            // 'Access-Control-Allow-Origin':'*',
+            // 'Access-Control-Allow-Methods': '*'
         };
 
         // abort controller : sirve para abortar en cualquier momento la peticion
@@ -20,7 +25,7 @@ export const  helpHttp = () =>{
         // }
         // con operador cortocircuito
         options.method = options.method || 'GET';
-
+        
         // aqui lo resolvemos como operador ternario
         // cuando no las espesifique ponemos por defecto las defaultHeaders
         // cuando las espesifique debemos combinarles nuestros datos
@@ -101,7 +106,7 @@ export const  helpHttp = () =>{
         return customFetch(url,options);
     }
     const del = (url,options = {}) => {
-        options.method = 'DEL';
+        options.method = "DELETE";
         return customFetch(url,options);
     }
 

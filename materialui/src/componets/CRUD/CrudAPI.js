@@ -35,10 +35,10 @@ useEffect(() => {
 
 const createData = (data)=>{
 
-    setIsLoading(true);
+ setIsLoading(true);
     
   let res = window.confirm("Desea confirmar el alta ?");
-  console.info(res);
+  // console.info(res);
     if(res){
         let options = {
             body: data,
@@ -65,16 +65,78 @@ const createData = (data)=>{
     
 
 };
-const updateData = ()=>{};
-const deleteData = ()=>{};
 
-    return (
+const updateData = (data)=>{
+
+    setIsLoading(true);
+
+    let endpoint = `${url}/${data.id}`;
+    let options = {
+        body: data,
+        headers: { "content-type": "application/json" },
+      };
+  
+    // Esta llamada a api la actualiza en la bd server
+    helpHttp().put(endpoint,options).then((res)=>{
+
+        if(!res.err){
+
+            // Esto actualiza la db en memoria del form
+            let newData = db.map((item)=>(item.id===data.id ? data:item))
+            setDb(newData);
+            alert("Actualizado" + JSON.stringify(data));
+        }else{
+            setError(res);
+        }
+        setIsLoading(false);
+        
+    });
+    
+};
+
+
+const deleteData = (id)=>{
+
+     const res = window.confirm('Quiere eliminar' + id);
+     if(!res)
+        return;
+
+
+    setIsLoading(true);
+
+    let endpoint = `${url}/${id}`;
+    let options = {
+        headers: { "content-type": "application/json" },
+      };
+  
+    // Esta llamada a api la actualiza en la bd server
+    helpHttp().del(endpoint,options).then((res)=>{
+
+        if(!res.err){
+
+            // filtramos <> del id y queda nuestro nuevo array sion este elemento
+            let newData = db.filter( el => el.id !== id ); 
+            
+            setDb(newData);
+            
+        }else{
+            setError(res);
+        }
+        setIsLoading(false);
+        
+    });
+    
+};
+
+
+
+return (
 
         <div>
          <h2>  Crud Api Helados </h2>
          
          <CrudForm 
-            dataToEdit = {currentData}
+            currentData = {currentData}
             setCurrentData={setCurrentData}
             createData={createData} 
             updateData={updateData}
@@ -82,6 +144,7 @@ const deleteData = ()=>{};
          
         {isLoading && <Loader/>} 
         {error && <Message msg = {error.message} isError={true}/>} 
+
         {db && <CrudTable 
             products={db} 
             setCurrentData={setCurrentData}

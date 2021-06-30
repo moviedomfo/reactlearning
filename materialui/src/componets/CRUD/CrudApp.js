@@ -31,7 +31,7 @@ const deleteData = ()=>{};
          <h2>  Crud Helados </h2>
          
          <CrudForm 
-            dataToEdit = {currentData}
+            currentData = {currentData}
             setCurrentData={setCurrentData}
             createData={createData} 
             updateData={updateData}

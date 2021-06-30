@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect, useState } from 'react';
+
 
 const initialForm ={
     id:null,
@@ -9,7 +9,20 @@ const initialForm ={
 }
 export const CrudForm = ({currentData,setCurrentData,createData,updateData}) => {
 
+  
 const [form, setForm] = useState(initialForm);
+
+// escuchar cambios en currentData
+useEffect(() => {
+    
+    if(currentData)
+        {
+            setForm( currentData);
+        }else{
+            setForm( initialForm);
+        }
+}, [currentData]);
+
 const handleInput = (e) =>{
         setForm(
             {
@@ -24,6 +37,7 @@ const handleOptions = (e) =>{
         [e.target.name]:e.target.value
     });
 }
+
 const handleSubmit = (e) =>{
   e.preventDefault();
 
@@ -45,6 +59,9 @@ const handleSubmit = (e) =>{
 }
 const handleReset = (e) =>{
     setForm(initialForm);
+
+    // reseteo
+    setCurrentData(null);
 }
 
     return (

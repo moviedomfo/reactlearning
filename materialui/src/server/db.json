@@ -2,17 +2,17 @@
   "products": [
     {
       "id": 5001,
-      "name": "Lemoneto",
+      "name": "Lemoneto x",
       "origen": "Italia"
     },
     {
       "id": 5002,
-      "name": "Glazed",
+      "name": "Glazed blue",
       "origen": "Italia"
     },
     {
       "id": 5005,
-      "name": "Sugar",
+      "name": "Sugardddd",
       "origen": "Italia"
     },
     {
@@ -59,11 +59,6 @@
       "id": "05bc5884-d95c-4f6e-bbd0-9e5d4aaf392a",
       "name": "asdfsaFwsfsdaF",
       "origen": ""
-    },
-    {
-      "id": "cd0e3136-88a6-42f4-a65b-865239ec7569",
-      "name": "A<SDFSDFSAFSDFA",
-      "origen": "Ungria"
     }
   ]
 }
