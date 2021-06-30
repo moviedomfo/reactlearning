@@ -8,6 +8,7 @@ import GridPelsoft from './componets/GridPelsoft'
 import Formulario from './componets/Formulario.js';
 import { CrudApp } from './componets/CRUD/CrudApp.js';
 import { CrudAPI } from './componets/CRUD/CrudAPI.js';
+import SongSearch from './componets/Canciones/SongSearch.js';
 // import PokemonAsyncHooks from './componets/PokemonAsyncHooks.js';
 // import PokemonHooks from './componets/PokemonHooks.js';
 
@@ -17,7 +18,10 @@ function App() {
   return (
     <Fragment>
     <hr/>
-        <CrudAPI/>
+
+      <SongSearch></SongSearch>
+      <hr></hr>
+        {/* <CrudAPI/> */}
         <hr/>
       
         {/* <CrudApp/> */}
