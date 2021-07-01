@@ -1,12 +1,10 @@
-const SongLyric = ({bio}) => {
+const SongLyric = ({currenLyric,title}) => {
     return (
-        < >
-            
-            <img src={bio.artists[0].strArtistBanner} alt="strArtistBanner" width="300" height="300"></img>
-             <p>{bio.artists[0].strBiographyDE}</p>   
-            
-        </>
-        
+        <section>
+            <h3> {title}                
+            </h3>
+            <blockquote style={{whiteSpace:"pre-wrap"}}>{currenLyric}</blockquote>
+        </section>
     )
 }
 

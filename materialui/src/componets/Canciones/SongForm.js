@@ -23,7 +23,8 @@ const SongForm = ({ hadleSearch }) => {
   };
   
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Nombre del artista"
@@ -40,6 +41,7 @@ const SongForm = ({ hadleSearch }) => {
       ></input>
       <input type="submit" value="Aceptar"></input>
     </form>
+    </div>
   );
 };
 

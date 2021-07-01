@@ -5,11 +5,11 @@ const  Message =  ({msg,isError})  => {
     
      
     return (
-         <>
+         <div>
            {isError && <Alert severity="error">{msg} </Alert>}
            {!isError && <Alert severity="info">{msg} </Alert>}
 
-        </> 
+        </div> 
     );
   
 };

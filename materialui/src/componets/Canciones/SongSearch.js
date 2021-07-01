@@ -53,17 +53,20 @@ const SongSearch = () => {
   };
 
   return (
-    <>
+    <div>
       <h2> Song Search</h2>
-      {loading && <Loader />}
-      {/* {error && <Message msg={error.message} isError={true} />} */}
+      <article className="grid-1-3 ">
+        
+        {/* {error && <Message msg={error.message} isError={true} />} */}
 
-      <SongForm hadleSearch={hadleSearch} />
-
-      {search && !loading && (
-        <SongDetails search={search} currenLyric={currenLyric} bio={bio} />
-      )}
-    </>
+        <SongForm hadleSearch={hadleSearch} />
+        {loading && <Loader />}
+        {search && !loading && (
+            <SongDetails search={search} currenLyric={currenLyric} bio={bio} />
+        )}
+      </article>
+      
+    </div>
   );
 };
 

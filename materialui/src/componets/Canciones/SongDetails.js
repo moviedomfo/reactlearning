@@ -8,14 +8,13 @@ const SongDetails = ({ search, currenLyric, bio }) => {
   if (!search || !bio)
    return null;
 
-   alert();
+   
 
 
   return (
     <>
-      {/* {!search || bio  (<Message msg={'error'} isError= {true}></Message>)} */}
 
-      {currenLyric.err || currenLyric.name === "AbortError" ? (
+      {currenLyric.error ||currenLyric.err || currenLyric.name === "AbortError" ? (
         <Message
           msg={`Error: No existe la canción ${search.song}`}
           isError={true}
@@ -23,7 +22,7 @@ const SongDetails = ({ search, currenLyric, bio }) => {
       ) : (
         <SongArtist artist = {bio}/>
       )}
-      {bio.artists ? <SongLyric bio={bio} /> : <Message   msg={`Error: No artista  ${search.artist}`} />}
+      {bio.artists ? <SongLyric currenLyric={currenLyric}  title={search.song} /> : <Message   msg={`Error: No artista  ${search.artist}`} />}
     </>
   );
 };
