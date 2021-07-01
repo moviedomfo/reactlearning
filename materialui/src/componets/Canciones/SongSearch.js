@@ -1,78 +1,70 @@
-import React, { useEffect,useState } from 'react';
-import { helpHttp } from '../helpers/helpHttp';
-import Loader from '../Loader';
-import Message from '../Message.js';
-import SongDetails from './SongDetails';
-import SongForm from './SongForm';
+import React, { useEffect, useState } from "react";
+import { helpHttp } from "../helpers/helpHttp";
+import Loader from "../Loader";
 
-const url_song = "https://lyricsovh.docs.apiary.io";
-const url_artist = 'https://www.theaudiodb.com/api/v1/json/1/search.php';
+import SongDetails from "./SongDetails";
+import SongForm from "./SongForm";
+
+const url_song = "https://private-anon-6350773df0-lyricsovh.apiary-mock.com/v1";
+const url_artist = "https://www.theaudiodb.com/api/v1/json/1/search.php";
 const SongSearch = () => {
-    const [search, setSearch] = useState(null);
-    const [currenLyric, setCurrenLyric] = useState(null);
-    const [bio, setBio] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error,setError] = useState(null);
+  const [search, setSearch] = useState(null);
+  const [currenLyric, setCurrenLyric] = useState(null);
+  const [bio, setBio] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        // para evitar renderizados innecesarios
-        if(!search)return;
+  useEffect(() => {
+    // para evitar renderizados innecesarios
+    if (!search) return;
 
-  
+    const fetchData = async () => {
+      const { artist, song } = search;
+      // alert(JSON.stringify(search));
 
-      
-    const fetchData =async ()=>{
+      let search_artist = `${url_artist}?s=${artist}`;
+      let search_song = `${url_song}/${artist}/${song}`;
+      setLoading(true);
+      //DEBO ESPERAR AMBAS PETICIONES Artsta mas Canciones
+      const [res_artist, res_songs] = await Promise.all([
+        helpHttp().get(search_artist),
+        helpHttp().get(search_song),
+      ]);
 
-        const {artist,song} = search;
-        // alert(JSON.stringify(search));
+      //   if (res_artist.err) {
+      //     setError(res_artist.err);
+      //   }
+      //   if (res_songs.err) {
+      //     setError(res_artist.err);
+      //     //return;
+      //   }
 
-        let search_artist = `${url_artist}?s=${artist}`;
-        let search_song = `${url_song}/${artist}/${song}`;
-        setLoading(true);
-        //DEBO ESPERAR AMBAS PETICIONES Artsta mas Canciones
-       const [res_artist,res_songs] = await Promise.all([
-            helpHttp().get(search_artist),
-            helpHttp().get(search_song)
-        ]);
-
-        if(res_artist.error){
-            setError(res_artist.error);
-            
-        }
-        if(res_songs.error){
-            setError(res_artist.error);
-            return;
-        }
-
-        setBio(res_artist);
-        setCurrenLyric(res_songs);
-        
-        setLoading(false);
-    }
-    fetchData();
+      // se pasa el res con o sin error para q despues los hijos componentes sepan que hacer con el error
+      setBio(res_artist);
+      setCurrenLyric(res_songs);
      
-    }, [search]);
-
-
-    const hadleSearch = (searchData) =>{
-        
-  
-        setSearch(searchData);
-           
+      setLoading(false);
     };
-    
-    return (
-        <>
-            <h2> Song Search</h2> 
-               {loading && <Loader/> }
-                {error && <Message msg = {error.message} isError={true}/>} 
-            <SongForm hadleSearch={hadleSearch}/>
-            <SongDetails search= {search}
-               currenLyric={currenLyric} 
-               bio={bio} 
-               />
-        </>
-    )
-}
+    fetchData();
+  }, [search]);
 
-export default SongSearch
+  const hadleSearch = (searchData) => {
+    setSearch(searchData);
+  };
+
+  return (
+    <>
+      <h2> Song Search</h2>
+      {loading && <Loader />}
+      {/* {error && <Message msg={error.message} isError={true} />} */}
+
+      <SongForm hadleSearch={hadleSearch} />
+
+      {search && !loading && (
+        <SongDetails search={search} currenLyric={currenLyric} bio={bio} />
+      )}
+    </>
+  );
+};
+
+export default SongSearch;

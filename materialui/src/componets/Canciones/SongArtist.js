@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SongArtist = () => {
+const SongArtist = ({artist}) => {
     return (
         <div>
                 Artista
