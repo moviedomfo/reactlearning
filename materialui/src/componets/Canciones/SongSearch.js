@@ -5,8 +5,11 @@ import Loader from "../Loader";
 import SongDetails from "./SongDetails";
 import SongForm from "./SongForm";
 
-const url_song = "https://private-anon-6350773df0-lyricsovh.apiary-mock.com/v1";
+
 const url_artist = "https://www.theaudiodb.com/api/v1/json/1/search.php";
+const url_song = "https://private-anon-6350773df0-lyricsovh.apiary-mock.com/v1/";
+//const url_song = "https://api.lyrics.ovh/v1";
+// let songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
   const [currenLyric, setCurrenLyric] = useState(null);
@@ -55,7 +58,7 @@ const SongSearch = () => {
   return (
     <div>
       <h2> Song Search</h2>
-      <article className="grid-1-3 ">
+      <article className="grid-1-3">
         
         {/* {error && <Message msg={error.message} isError={true} />} */}
 

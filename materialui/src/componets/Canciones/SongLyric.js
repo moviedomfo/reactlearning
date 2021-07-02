@@ -1,3 +1,5 @@
+import React from 'react';
+
 const SongLyric = ({currenLyric,title}) => {
     return (
         <section>

@@ -1,0 +1,67 @@
+{
+  "regiones": {
+    "paices": [
+      {
+        "id": 5001,
+        "name": "Argentina "
+      },
+      {
+        "id": 5002,
+        "name": "Alemania"
+      },
+      {
+        "id": 5004,
+        "name": "Mexico"
+      }
+    ],
+    "provincias": [
+      {
+        "id": 200,
+        "name": "Cordoba ",
+        "idPais": 5001
+      },
+      {
+        "id": 201,
+        "name": "Buenos Aires",
+        "idPais": 5001
+      },
+      {
+        "id": 203,
+        "name": "Chiapas",
+        "idPais": 5004
+      },
+      {
+        "id": 203,
+        "name": "Baja California Sur",
+        "idPais": 5004
+      }
+    ],
+    "municipios": [
+      {
+        "id": 100,
+        "name": "Adelia Maria ",
+        "idProvincia": 200
+      },
+      {
+        "id": 101,
+        "name": "San basilio",
+        "idProvincia": 200
+      },
+      {
+        "id": 103,
+        "name": "Mitre ",
+        "idProvincia": 201
+      },
+      {
+        "id": 104,
+        "name": "Hidalgo",
+        "idProvincia": 203
+      },
+      {
+        "id": 105,
+        "name": "Acambay",
+        "idProvincia": 203
+      }
+    ]
+  }
+}
