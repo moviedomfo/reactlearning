@@ -5,7 +5,7 @@ import usePelsoftFetch from '../hooks/usePelsoft';
 
 const url = 'https:pokeapi.co/api/v2/pokemon/' ;
 
-// par areact todos los hooks deben em pesar con hooks
+// para react todos los hooks deben empesar con hooks
 export default function HooksPersonalizados () {
 
     

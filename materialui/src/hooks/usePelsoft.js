@@ -1,7 +1,7 @@
 import  {useState, useEffect } from 'react'
 
-// par areact todos los hooks deben em pesar con hooks
-// Aqui l apeticion es generica. La lógica de obtener los avatar de c/pokemon iria en el HoockPersonalizado.js qu 
+// para react todos los hooks deben empesar con hooks
+// Aqui la peticion es generica. La lógica de obtener los avatar de c/pokemon iria en el HoockPersonalizado.js qu 
 // utiliza el usePelsoftFetch
 const  usePelsoftFetch =  (url)  => {
     const [data, setData] = useState(null);

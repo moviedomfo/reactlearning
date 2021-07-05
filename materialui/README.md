@@ -5,11 +5,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+### `npm run jserver`
+
+To start local fake json-server in 
+Open [http://localhost:50010](http://localhost:3000) to view it in the browser.
+This server use local src/server/db.json file and expose  APIs to make CRUD on its objects 
+
 
 ### `npm start`
 
 Inb Other console
-### `npm run jserver` tio call script json-server --watch src/server/db.json --port 50010
+### `npm run json-server` tio call script json-server --watch src/server/db.json --port 50010
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
