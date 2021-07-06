@@ -125,7 +125,7 @@ const Selector = ({tittle,url,handleChange,parentId}) => {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                         {lista.length !==0 ?
-                               (<p>{JSON.stringify(lista)}</p>)
+                               (<span>{JSON.stringify(lista)}</span>)
                                 :
                                 (<label>No hay data</label>)
 
