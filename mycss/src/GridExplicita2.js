@@ -18,11 +18,19 @@ const GridExplicita2 = () => {
           <div className="col  six">Six</div>
           <div className="col  six">Seven</div>
 
-          <div className="col ">
+          <div className="col ocho ">
             The text will be displayed exactly as written in the HTML source
             code. Text in a pre element is displayed in a fixed-width font, and
             it preserves both spaces and line breaks
           </div>
+          <div className="col  ">9</div>
+          <div className="col  ">10</div>
+          <div className="col  ">11</div>
+          <div className="col  ">12</div>
+          <div className="col  ">13</div>
+          <div className="col  ">14</div>
+          <div className="col  ">15</div>
+          <div className="col  ">16</div>
         </section>
       
     </div>

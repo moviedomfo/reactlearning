@@ -60,6 +60,24 @@
  
 }
 
+/* Busca el item 10  */
+
+.grid-explicita2 .col:nth-child(10){
+
+  color: rgb(244, 255, 205) ;
+  background-color: darkolivegreen;
+  font-size: 2rem;
+  grid-row-start:2;
+  grid-row-end:3;
+  grid-column-start:2;
+  grid-column-end:3;
+
+  
+    /* grid-row: 2/3; */
+    /* Que ocupe mas espacio  grid-column: 3/5*/
+  grid-column: 3/5;  
+
+}
 .col{
   background-color: #c62828 ;
   /* border-radius: 20px; */
