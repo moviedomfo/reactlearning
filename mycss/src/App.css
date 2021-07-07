@@ -1,0 +1,76 @@
+.App {
+  /* text-align: center; */
+}
+
+.App-logo {
+  height: 8vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  /* min-height: 100vh;
+  display: flex; */
+  /* flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin); */
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* A los contenedores le vamos a aplicar display grid */
+.container {
+  /* Arriba | Derecha | Abajo | Izquierda */
+  margin: 2px auto 10px;
+  padding: 5px;
+  width: 83%;
+  height: 95vh; 
+  background-color: #222;
+  border: medium solid #000;
+  border-radius: 25px;
+}
+.grid-explicita{
+  
+  display: grid;
+  /* Grid de 3cx3r */
+  grid-template-columns:  100px 40% 1fr;
+  grid-template-rows: 6rem 20vh 30%;
+  grid-gap: 10px; 
+ 
+}
+.grid-explicita2{
+  
+  display: grid;
+  /* Grid de 3cx3r */
+  /* Grid de 5cx4r */
+ grid-template-columns: repeat(5, 20%); /* las 5 primeras col del mismo tamanio  */
+ grid-template-rows: repeat(4, auto);  /*todas las filas se adaptan al contenido*/
+ column-gap: 8px; 
+ row-gap: 21px; 
+ 
+}
+
+.col{
+  background-color: #c62828 ;
+  /* border-radius: 20px; */
+  padding-left: 5px;
+}
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
